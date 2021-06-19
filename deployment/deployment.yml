@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: insurance_node_backend
+  name: insurance-node-backend
   labels:
-    app: insurance_node_backend
+    app: insurance-node-backend
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: insurance_node_backend
+      app: insurance-node-backend
   template:
     metadata:
       labels:
-        app: insurance_node_backend
+        app: insurance-node-backend
     spec:
       containers:
       - name: api-users
-        image: mayank071293/insurance_node_backend
+        image: mayank071293/insurance-node-backend
         ports:
         - containerPort: 80

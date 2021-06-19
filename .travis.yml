@@ -15,7 +15,7 @@ before_script:
 
 script:
   - docker --version # print the version for logging
-  - docker build -t insurance_node_backend 
+  - docker build -t insurance-node-backend 
       --build-arg DB_USERNAME="$DB_USERNAME"
       --build-arg DB_PASSWORD="$DB_PASSWORD"
       --build-arg DB_HOST="$DB_HOST"
@@ -23,12 +23,12 @@ script:
       --build-arg PORT="$PORT"
       --build-arg HOST="$HOST"
       --build-arg ENV="$ENV" .
-  - docker tag insurance_node_backend mayank071293/insurance_node_backend:latest
+  - docker tag insurance-node-backend mayank071293/insurance-node-backend:latest
 
 # Tasks to perform after the process is successful. Formatting the Docker username and password as below enables you to programmatically log in without having the password exposed in logs.
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push mayank071293/insurance_node_backend
+  - docker push mayank071293/insurance-node-backend
 
 
 
